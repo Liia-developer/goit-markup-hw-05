@@ -143,8 +143,20 @@
     margin-left: 30px;
 }
 
+.product-activity {
+    position: relative;
+}
+
 .activity-text {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+
+    width: 370px;
+    height: 70px;
+    
     margin-bottom: 0;
+    padding-top: 27px;
 
     font-style: normal;
     font-weight: bold;
@@ -254,12 +266,16 @@
     fill: #AFB1B8;
 }
 
-.social-link:hover {
+.social-link:hover,
+.social-link:focus {
     background-color: #2196F3;
+    outline: transparent;
 }
 
-.social-link:hover .icon-social {
+.social-link:hover,
+.social-link:focus .icon-social {
     --color3: #FFFFFF;
+    outline: transparent;
 }
 
                /* section - company partners */
@@ -289,13 +305,17 @@
     fill: #AFB1B8;
 }
 
-.company-link:hover {
+.company-link:hover,
+.company-link:focus {
     border: 1px solid var(--accent-color);
     border-radius: 4px;
+    outline: transparent;
 }
 
-.company-link:hover .icon-company {
+.company-link:hover,
+.company-link:focus .icon-company {
     --color3: var(--accent-color);
+    outline: transparent;
 }
                                           /* Portfolio */
 
@@ -335,6 +355,7 @@ button {
 .button-second:focus {
         background-color: var(--accent-color);
         color: var(--primary-white-color);
+        outline: transparent;
 }
  
 .section-gallery {
@@ -352,8 +373,12 @@ button {
 
 .gallery-shadow {
     background: #FFFFFF;
-    /* border: 1px solid #EEEEEE; */
+    border: 1px solid #EEEEEE;
+
     
+}
+
+.gallery-shadow:hover {
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     0px 1px 1px rgba(0, 0, 0, 0.12);
@@ -375,6 +400,7 @@ button {
 
                           /* h2 */
 .gallery-title {
+    margin-left: 24px;
     margin-bottom: 4px;
 
     color: var(--title-color);
@@ -382,18 +408,89 @@ button {
     font-size: 18px;
     line-height: 2;
     letter-spacing: 0.06em;
+   
 }
 
 .gallery-text {
+    margin-left: 24px;
     margin-bottom: 20px;
 
+    color: #757575;
     font-weight: normal;
     font-size: 16px;
     line-height: 1.8;
     letter-spacing: 0.03em;
 }
 
-.hover-message  {
-    margin-bottom: 0;
+.product {
+    text-decoration: none;
 }
 
+.product:focus {
+    outline: transparent;
+}
+
+.product-thumb {
+    position: relative;
+    
+    overflow: hidden;
+}
+
+.product-thumb::before {
+    content: '';
+
+    padding-top: 63px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    transform: translateY(101%);
+    
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    background-color: rgba(33, 149, 243, 0.9);
+}
+
+.hover-message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+    padding-top: 63px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+
+    transform: translateY(101%);
+    
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* background-color: rgba(33, 149, 243, 0.9); */
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+.product:hover .product-thumb::before {
+    transform: translateY(0);
+}
+
+.product:hover .hover-message {
+    transform: translateY(0);
+}
